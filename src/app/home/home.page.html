@@ -1,12 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+  <ion-toolbar> <ion-title> Board Upload</ion-title> </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <ion-grid>
+    <ion-row *ngIf="showCreateButton">
+      <ion-col text-center>
+        <ion-button color="primary" (click)="takePicture()"
+          >Upload board</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="image">
+      <ion-col text-center>
+        <ion-card>
+          <img [src]="image" />
+          <ion-card-content>
+            <ion-spinner
+              *ngIf="syncingToConfluence"
+              name="circles"
+            ></ion-spinner>
+
+            <div *ngIf="syncSuccess" color="success">
+              <ion-title color="success">Board Uploaded</ion-title>
+
+              <ion-icon
+                name="checkmark-circle-outline"
+                color="success"
+              ></ion-icon>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,5 +1,8 @@
 {
   "name": "Upboarder",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }
